@@ -22,11 +22,14 @@ const Game = (props) => {
                 }
                 setGameNumber(newNumber);
                 if (newNumber === 5) {
-                    props.setWinner(props.socket.id);
+                    console.log('username: ' + props.username);
+                    props.setWinner(props.username);
                     props.setGameOver(true);
+                    console.log('GOAT: ' + props.username);
+                    console.log('ROOM: ' + props.room);
                     
                     const data = {
-                        goat: props.winner,
+                        goat: props.username,
                         room: props.room,
                     };
 
@@ -46,7 +49,9 @@ const Game = (props) => {
 
             {props.gameOver ? (<div>
                 <h1 className="text-2xl font-bold text-gray-900 mt-4">Game Over!</h1>
-                <h1 className="text-2xl font-bold text-gray-900 mt-4">{props.winner === props.socket.id ? `You win!` : `You Lost! Player ${props.winner} won.`}</h1>
+                <h1 className="text-2xl font-bold text-gray-900 mt-4">
+                    {props.winner === props.socket.id ? `You win!` : `You Lost! Player ${props.winner} won.`}
+                </h1>
             </div>
             ) : (<div></div>)}
 

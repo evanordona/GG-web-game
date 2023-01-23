@@ -6,7 +6,7 @@ import Game from './components/Game';
 import WaitingRoom from './components/WaitingRoom';
 
 //! Important - when trying to test on mobile use your own ip address and not localhost
-const DOMAIN = 'http://192.168.1.97:4000'
+const DOMAIN = 'http://localhost:4000'
 
 // connects to backend server io
 const socket = io.connect(DOMAIN);
@@ -27,6 +27,10 @@ function App() {
   
   // room state
   const [room, setRoom] = useState("");
+
+  // username state
+  const [username, setUsername] = useState("");
+
 
   useEffect(() => {
     socket.on('winner', (w) => {
@@ -58,6 +62,8 @@ function App() {
             socket={socket}
             room = {room}
             setRoom={setRoom}
+            username = {username}
+            setUsername={setUsername}
             setLoggedOut={setLoggedOut}
             setJoinWaitingRoom={setJoinWaitingRoom}
             setHostWaitingRoom={setHostWaitingRoom} />
@@ -77,9 +83,13 @@ function App() {
 
         />) : (<div></div>)}
 
-      {startGame ? (<Game socket={socket}
+      {startGame ? (<Game 
+        socket={socket}
         startGame={startGame}
         winner={winner}
+        room={room}
+        username={username}
+        setUsername={setUsername}
         gameOver={gameOver}
         setStartGame={setStartGame}
         setLoggedOut={setLoggedOut}
@@ -88,7 +98,7 @@ function App() {
         setWinner={setWinner}
         setGameOver={setGameOver}
         />
-      ) : (<div>{winner}</div>)}
+      ) : (<h1 className="text-4xl font-bold text-blue-500">{winner}</h1>)}
     </div>
   );
 }

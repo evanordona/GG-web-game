@@ -4,7 +4,7 @@ const http = require('http');
 const cors = require('cors');
 
 //! Important - when trying to test on mobile use your own ip address and not localhost
-const DOMAIN = 'http://192.168.1.97:3000'
+const DOMAIN = 'http://localhost:3000'
 
 // express setup
 const app = express();
@@ -55,6 +55,7 @@ io.on('connection', (socket) => {
 
     socket.on('endGame', (data) => {
         console.log(data.goat, ' is the winner a game!');
+        console.log(data.room, ' is da room a game!');
         io.in(data.room).emit('winner', data.goat);
     })
 
