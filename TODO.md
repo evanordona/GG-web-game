@@ -1,23 +1,15 @@
-# Front end
+### Front end
 
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
+- [x] Develop prototype UI
 
-# Back end
+### Back end
+- [x] Allow connection to mobile devices
+- [x] Setup room connection
 
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
 
-# Game Functionality
+### Game Functionality
 
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
-[ ] - lorem ipsum
+- [x] Implement number game
+- [ ] Fix winner
+- [ ] Think of new game idea
+- [ ] 
